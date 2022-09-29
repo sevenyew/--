@@ -1,10 +1,11 @@
 *.pdf
 *.log
 *.aux
-*synctex.gz
+*.synctex.gz
 *.nav
 *.toc
 *.vrb
 *.out
 *.snm
-*synctex
+*.synctex
+*.synctex(busy)

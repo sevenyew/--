@@ -187,6 +187,35 @@
         试计算以下各处的磁感强度：（1）\(r<R_1\)；（2）\(R_1<r<R_2\)；（3）\(R_2<r<R_1\)；（4）\(r>R_3\)。画出\(B-r\)图线。
     
     \item[\mlabel{itm:20}{7-20}] 电流\(I\)均匀地流过半径为\(R\)的圆形长直导线，试计算单位长度导线中通过图中所示剖面的磁通量。
+    \begin{figure}[htb]
+        \centering
+        \begin{minipage}[b]{0.4\textwidth}
+            \centering
+            \begin{tikzpicture}[scale=0.6]
+                [dashdotted/.style={dash pattern={on 15pt off 2pt on 2pt off 2pt}}]
+                \draw[fill=lightgray] (0,0) -- node[left]{\(R\)} ++(-45:1 and 2) -- ++(6,0) -- (6,0);
+                \draw (0,0) ellipse (1 and 2);
+                \draw[dashed] (6,0)++(90:1 and 2) arc (90:270:1 and 2);
+                \draw (6,0)++(90:1 and 2) arc (90:-90:1 and 2);
+                \draw (0,2) -- +(6,0);
+                \draw (0,-2) -- +(6,0);
+                \draw[dashdotted] (-2,0) --+(10,0);
+                \draw[-stealth] (4,1) -- node[above]{\(I\)} (2.5,1);
+            \end{tikzpicture}
+            \caption{\ref{itm:20} 题图}
+        \end{minipage}
+        \begin{minipage}[b]{0.4\textwidth}
+            \centering
+            \begin{tikzpicture}[scale=0.6]
+                \draw (0,0) -- (-2.5,0);
+                \draw[fill=gray] (90:1 and 2) -- ++(-0.2,0) arc (90:270:1 and 2) -- ++(0.2,0);
+                \draw[top color= white,bottom color = gray] (0,0) ellipse (1 and 2);
+                \draw[Circle-stealth] (3,0) node[above]{\(P\)} -- node[above]{\(x\)} (0,0) -- node[right]{\(R\)} (135:1 and 2);
+                \draw[-stealth] (135:1 and 2)++(-0.4,0) arc (135:165:1 and 2) node[midway,left]{\(\omega\)};
+            \end{tikzpicture}
+            \caption{\ref{itm:26} 题图}
+        \end{minipage}
+    \end{figure}
 
     \item[7-22] 设有两无限大平行载流平面，它们的电流面密度均为\(j\)，电流流向相反，求：（1）两载流平面之间的磁感强度；（2）两载流平面之外空间
         的磁感强度。
@@ -196,7 +225,20 @@
     
     \item[\mlabel{itm:29}{7-29}] 如图所示，在\(B=\csi{0.01}{\tesla}\)的均匀磁场中，电子以\(v=\csi{e4}{\m\per\s}\)的速度在磁场中通过点\(A\)运动，
         电子运动速度和磁场\(\bm{B}\)的夹角为 \ang{30}。求电子的轨道半径和旋转频率。
-    
+        \begin{figure}[htb]
+            \centering
+            \begin{minipage}[b]{0.4\textwidth}
+                \centering
+                \begin{tikzpicture}
+                    \foreach \x in {0,0.5,...,2.5}
+                        \draw[-stealth] (0,\x) -- ++(3.5,0);
+                    \draw[thick,Circle-stealth] (1,1) node[below]{\(A\)} -- ++(30:1.8) node[left]{\(\bm{v}\)};
+                    \node[above] at (3,2) {\(\bm{B}\)};
+                \end{tikzpicture}
+                \caption{\ref{itm:29} 题图}
+            \end{minipage}
+        \end{figure}
+
     \item[\mlabel{itm:33}{7-33}] 霍耳效应可用来测量血流的速度，其原理如图所示。在动脉血管两侧分别安装电极并加以磁场。
         设血管直径为\csi{2.0}{\mm}，磁感强度为\csi{0.080}{\tesla}，毫伏表测出血管上下两端的电压为\csi{0.10}{\mV}，
         则血流的速度为多大？
