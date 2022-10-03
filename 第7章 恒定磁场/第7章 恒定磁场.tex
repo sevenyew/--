@@ -5,7 +5,7 @@
 \usepackage{physics}
 \usepackage{lmodern}
 \usepackage{tikz}
-\usepackage{wrapfig}
+\usepackage{cutwin}
 \usepackage{fancyhdr}
 \usepackage{caption}
 \usepackage{enumitem}
@@ -88,7 +88,7 @@
             \centering
             \begin{minipage}[b]{0.3\textwidth}
                 \centering
-                \begin{tikzpicture}
+                \begin{tikzpicture}[scale=0.7]
                     \draw[transparent] (0,0) -- (0,-2.7);
                     \draw[-stealth] (-2,0) -- (2,0) node[below]{\(y\)};
                     \draw[-stealth] (0,0) -- (0,2) node[right]{\(z\)};
@@ -107,7 +107,7 @@
             \end{minipage}
             \begin{minipage}[b]{0.3\textwidth}
                 \centering
-                \begin{tikzpicture}
+                \begin{tikzpicture}[scale=0.7]
                     \draw[-stealth] (-2,0) -- (2,0) node[below]{\(y\)};
                     \draw[-stealth] (0,-2) -- (0,2) node[right]{\(z\)};
                     \draw[-stealth] (0,0) -- (-1.5,-1.5) node[right]{\(x\)};
@@ -125,7 +125,7 @@
             \end{minipage}
             \begin{minipage}[b]{0.3\textwidth}
                 \centering
-                \begin{tikzpicture}
+                \begin{tikzpicture}[scale=0.7]
                     \draw[-stealth] (-2,0) -- (2,0) node[below]{\(y\)};
                     \draw[-stealth] (0,-2) -- (0,2) node[right]{\(z\)};
                     \draw[-stealth] (0,0) -- (-1.5,-1.5) node[right]{\(x\)};
@@ -146,18 +146,18 @@
 
     \item[\mlabel{itm:13}{7-13}] 如图所示，一个半径为\(R\)的无限长半圆柱面导体，沿长度方向的电流\(I\)在柱面上均匀分布，求半圆柱面轴线
         \(OO^\prime\)上的磁感强度。
-        \begin{figure}[htb]
+        \begin{figure}[htbp]
             \centering
             \begin{minipage}[b]{0.4\textwidth}
                 \centering
-                \begin{tikzpicture}[scale=0.8]
+                \begin{tikzpicture}[scale=0.7]
                     [dashdotted/.style={dash pattern={on 10pt off 2pt on 2pt off 2pt}}]
                     \draw (45:1.8 and 0.9)++(0,-5) arc (45:135:1.8 and 0.9);
                     \draw[fill = lightgray] (225:2 and 1) arc (225:45:2 and 1) -- ++(0,-5) -- ++(225:0.2 and 0.1)
                         -- ++(0,5) arc (45:225:1.8 and 0.9) -- ++(0,-5) -- ++(225:0.2 and 0.1)
                         -- cycle;
                     \draw (180:2 and 1) -- ++(0,-5) arc (180:225:2 and 1);
-                    \draw[dashdotted] (0,1.5) -- (0,-6.5);
+                    \draw[dashdotted] (0,1.5) -- (0,-6);
                     \draw[dashdotted] (225:3 and 1.5) -- (45:3 and 1.5);
                     \draw[dashdotted] (225:3 and 1.5)++(0,-5) -- +(45:6 and 3);
                     \draw (0,0) node[below right]{\(O\)} -- node[above]{\(R\)} (135:1.8 and 0.9);
@@ -165,22 +165,6 @@
                     \node[below right] at (0,-5) {\(O^\prime\)};
                 \end{tikzpicture}
                 \caption{\ref{itm:13} 题图}
-            \end{minipage}
-            \begin{minipage}[b]{0.4\textwidth}
-                \centering
-                \begin{tikzpicture}[rotate=15]
-                    \draw (90:0.25 and 0.5) -- ++(0.6,0) arc (90:-90:0.25 and 0.5) -- ++(-0.6,0);
-                    \draw[fill=lightgray,even odd rule] (0,0) ellipse (0.25 and 0.5) (0,0) ellipse (0.5 and 1)
-                        (0,0) ellipse (0.75 and 1.5);
-                    \fill[fill=white] (90:0.75 and 1.5) -- ++(1.5,0) arc (90:-90:0.75 and 1.5) -- ++(-1.5,0) arc (-90:90:0.75 and 1.5);
-                    \draw (0,1.5) -- ++(1.5,0);
-                    \draw (0,-1.5) -- ++(1.5,0);
-                    \draw[dashed] (1.5,1.5) arc (90:-90:0.75 and 1.5);
-                    \draw[red] (0,0) -- (180:0.25 and 0.5) node[left]{\(R_1\)};
-                    \draw[blue] (0,0) -- (270:0.5 and 1) node[below]{\(R_2\)};
-                    \draw[green] (0,0) -- (45:0.75 and 1.5) node[left]{\(R_3\)};
-                \end{tikzpicture}
-                \caption{\ref{itm:17} 题图}
             \end{minipage}
         \end{figure}
     
@@ -190,6 +174,22 @@
     \item[\mlabel{itm:20}{7-20}] 电流\(I\)均匀地流过半径为\(R\)的圆形长直导线，试计算单位长度导线中通过图中所示剖面的磁通量。
     \begin{figure}[htb]
         \centering
+        \begin{minipage}[b]{0.4\textwidth}
+            \centering
+            \begin{tikzpicture}[decoration={random steps,segment length=5pt,amplitude=2pt},rotate=15]
+                \draw (90:0.25 and 0.5) -- ++(0.6,0) arc (90:-90:0.25 and 0.5) -- ++(-0.6,0);
+                \draw[fill=lightgray,even odd rule] (0,0) ellipse (0.25 and 0.5) (0,0) ellipse (0.5 and 1)
+                    (0,0) ellipse (0.75 and 1.5);
+                \fill[fill=white] (90:0.75 and 1.5) -- ++(1.5,0) arc (90:-90:0.75 and 1.5) -- ++(-1.5,0) arc (-90:90:0.75 and 1.5);
+                \draw (0,1.5) -- ++(1.5,0);
+                \draw (0,-1.5) -- ++(1.5,0);
+                \draw[decorate] (1.5,1.5) arc (90:-90:0.75 and 1.5);
+                \draw[red] (0,0) -- (180:0.25 and 0.5) node[left]{\(R_1\)};
+                \draw[blue] (0,0) -- (270:0.5 and 1) node[below]{\(R_2\)};
+                \draw[green] (0,0) -- (45:0.75 and 1.5) node[left]{\(R_3\)};
+            \end{tikzpicture}
+            \caption{\ref{itm:17} 题图}
+        \end{minipage}
         \begin{minipage}[b]{0.4\textwidth}
             \centering
             \begin{tikzpicture}[scale=0.6]
@@ -205,17 +205,6 @@
             \end{tikzpicture}
             \caption{\ref{itm:20} 题图}
         \end{minipage}
-        \begin{minipage}[b]{0.4\textwidth}
-            \centering
-            \begin{tikzpicture}[scale=0.6]
-                \draw (0,0) -- (-2.5,0);
-                \draw[fill=gray] (90:1 and 2) -- ++(-0.2,0) arc (90:270:1 and 2) -- ++(0.2,0);
-                \draw[top color= white,bottom color = gray] (0,0) ellipse (1 and 2);
-                \draw[Circle-stealth] (3,0) node[above]{\(P\)} -- node[above]{\(x\)} (0,0) -- node[right]{\(R\)} (135:1 and 2);
-                \draw[-stealth] (135:1 and 2)++(-0.4,0) arc (135:165:1 and 2) node[midway,left]{\(\omega\)};
-            \end{tikzpicture}
-            \caption{\ref{itm:26} 题图}
-        \end{minipage}
     \end{figure}
 
     \item[7-22] 设有两无限大平行载流平面，它们的电流面密度均为\(j\)，电流流向相反，求：（1）两载流平面之间的磁感强度；（2）两载流平面之外空间
@@ -223,11 +212,19 @@
     
     \item[\mlabel{itm:26}{*7-26}] 如图所示，半径为\(R\)的圆片均匀带电，电荷面密度为\(\sigma\)，令该圆片以角速度\(\omega\)绕通过其中心且垂直于圆片
         的轴旋转。求轴线上距圆片中心为\(x\)处的点P的磁感强度和旋转圆片的磁矩。
-    
-    \item[\mlabel{itm:29}{7-29}] 如图所示，在\(B=\csi{0.01}{\tesla}\)的均匀磁场中，电子以\(v=\csi{e4}{\m\per\s}\)的速度在磁场中通过点\(A\)运动，
-        电子运动速度和磁场\(\bm{B}\)的夹角为 \ang{30}。求电子的轨道半径和旋转频率。
         \begin{figure}[htb]
             \centering
+            \begin{minipage}[b]{0.4\textwidth}
+                \centering
+                \begin{tikzpicture}[scale=0.6]
+                    \draw (0,0) -- (-2.5,0);
+                    \draw[fill=gray] (90:1 and 2) -- ++(-0.2,0) arc (90:270:1 and 2) -- ++(0.2,0);
+                    \draw[top color= white,bottom color = gray] (0,0) ellipse (1 and 2);
+                    \draw[Circle-stealth] (3,0) node[above]{\(P\)} -- node[above]{\(x\)} (0,0) -- node[right]{\(R\)} (135:1 and 2);
+                    \draw[-stealth] (135:1 and 2)++(-0.4,0) arc (135:165:1 and 2) node[midway,left]{\(\omega\)};
+                \end{tikzpicture}
+                \caption{\ref{itm:26} 题图}
+            \end{minipage}
             \begin{minipage}[b]{0.4\textwidth}
                 \centering
                 \begin{tikzpicture}
@@ -238,9 +235,19 @@
                 \end{tikzpicture}
                 \caption{\ref{itm:29} 题图}
             \end{minipage}
+        \end{figure}
+
+    \item[\mlabel{itm:29}{7-29}] 如图所示，在\(B=\csi{0.01}{\tesla}\)的均匀磁场中，电子以\(v=\csi{e4}{\m\per\s}\)的速度在磁场中通过点\(A\)运动，
+        电子运动速度和磁场\(\bm{B}\)的夹角为 \ang{30}。求电子的轨道半径和旋转频率。
+        
+    \item[\mlabel{itm:33}{7-33}] 霍耳效应可用来测量血流的速度，其原理如图所示。在动脉血管两侧分别安装电极并加以磁场。
+        设血管直径为\csi{2.0}{\mm}，磁感强度为\csi{0.080}{\tesla}，毫伏表测出血管上下两端的电压为\csi{0.10}{\mV}，
+        则血流的速度为多大？
+        \begin{figure}[htb]
+            \centering
             \begin{minipage}[b]{0.4\textwidth}
                 \centering
-                \begin{tikzpicture}[decoration={random steps,segment length=5pt,amplitude=2pt},scale=0.65]
+                \begin{tikzpicture}[decoration={random steps,segment length=5pt,amplitude=2pt},scale=0.6]
                     \draw (-0.3,3) rectangle (5,-2);
                     \draw[fill=white] (5,0) circle (0.5) node{\(\mathrm{mV}\)};
                     \draw[join = round] (4,-1.5) coordinate (D) -- ++(-3,0) -- node[right]{S} ++(0,3) -- ++(150:1) -- ++(3,0) coordinate (E);
@@ -258,52 +265,49 @@
                 \caption{\ref{itm:33} 题图}
             \end{minipage}
         \end{figure}
-
-    \item[\mlabel{itm:33}{7-33}] 霍耳效应可用来测量血流的速度，其原理如图所示。在动脉血管两侧分别安装电极并加以磁场。
-        设血管直径为\csi{2.0}{\mm}，磁感强度为\csi{0.080}{\tesla}，毫伏表测出血管上下两端的电压为\csi{0.10}{\mV}，
-        则血流的速度为多大？
     
     \item[7-35] 带电粒子在过饱和液体中运动会留下一串气泡，显示出粒子运动的径迹。设在气泡室中，有一个质子垂直于磁场飞过，
         留下一个半径为\csi{3.5}{\cm}的圆弧径迹，测得磁感强度为\csi{0.20}{\tesla},求此质子的动量和能量。
     
     \item[\mlabel{itm:37}{7-37}] 如图所示，一根长直导线载有电流\(I_1=\csi{30}{\A}\)，矩形回路载有电流\(I_2=\csi{20}{\A}\)。
         试计算作用在回路上的合力。已知\(d=\csi{1.0}{\cm},b=\csi{8.0}{\cm},l=\csi{0.12}{\m}\)。
+    
         \begin{figure}[htb]
             \centering
             \begin{minipage}[b]{0.4\textwidth}
                 \centering
-                \begin{tikzpicture}
-                    \draw (0,-3) rectangle (0.1,3);
-                    \draw[cyan] (1,-2) rectangle (2.5,2);
+                \begin{tikzpicture}[scale=0.8]
+                    \draw (0,-2) rectangle (0.1,2);
+                    \draw[cyan] (1,-1.5) rectangle (2.5,1.5);
                     \draw[-stealth] (-0.2,-0.5) -- node[left]{\(I_1\)} (-0.2,0.5);
                     \draw[-stealth] (1.2,-0.5) --node[right]{\(I_2\)} (1.2,0.5);
                     \draw[-stealth] (2.3,0.5) -- (2.3,-0.5);
-                    \draw[thin] (2.5,2) -- (2.9,2);
-                    \draw[thin] (2.5,-2) -- (2.9,-2);
-                    \draw[stealth-stealth] (2.7,-2) -- node[right]{\(l\)} (2.7,2);
-                    \draw[thin] (1,-2) -- (1,-2.4);
-                    \draw[thin] (2.5,-2) -- (2.5,-2.4);
-                    \draw[stealth-stealth] (2.5,-2.2) -- node[below]{\(b\)} (1,-2.2);
-                    \draw[stealth-stealth] (1,-2.2) -- node[below]{\(d\)} (0.1,-2.2);
+                    \draw[thin] (2.5,1.5) -- ++(0.4,0);
+                    \draw[thin] (2.5,-1.5) -- ++(0.4,0);
+                    \draw[stealth-stealth] (2.7,-1.5) -- node[right]{\(l\)} (2.7,1.5);
+                    \draw[thin] (1,-1.5) -- ++(0,-0.4);
+                    \draw[thin] (2.5,-1.5) -- ++(0,-0.4);
+                    \draw[stealth-stealth] (2.5,-1.7) -- node[below]{\(b\)} (1,-1.7);
+                    \draw[stealth-stealth] (1,-1.7) -- node[below]{\(d\)} (0.1,-1.7);
                 \end{tikzpicture}
                 \caption{\ref{itm:37} 题图}
             \end{minipage}
             \begin{minipage}[b]{0.4\textwidth}
                 \centering
-                \begin{tikzpicture}
+                \begin{tikzpicture}[scale=0.8]
                     \foreach \x in {0,0.6,1.2}
-                        \draw[-stealth,cyan] (\x,0) -- ++(0,6);
+                        \draw[-stealth,cyan] (\x,0) -- ++(0,4);
                     \foreach \x in {2.2,2.6,3.0,3.4}
-                        \draw[-stealth,cyan] (\x,0) -- ++(0,6);
-                    \draw (1.8,0) rectangle (1.9,6);
-                    \draw[loosely dotted] (1.85,0) -- ++(0,6) node[near end,right]{\(\bm{j}\)};
-                    \node[fill=white] at (0.6,3) {\(\bm{B_1}\)};
-                    \node[fill=white] at (2.6,3) {\(\bm{B_2}\)};
+                        \draw[-stealth,cyan] (\x,0) -- ++(0,4);
+                    \draw (1.8,0) rectangle (1.9,4);
+                    \draw[loosely dotted] (1.85,0) -- ++(0,4) node[near end,right]{\(\bm{j}\)};
+                    \node[fill=white] at (0.6,2) {\(\bm{B_1}\)};
+                    \node[fill=white] at (2.6,2) {\(\bm{B_2}\)};
                 \end{tikzpicture}
                 \caption{\ref{itm:39} 题图}
             \end{minipage}
         \end{figure}
-    
+
     \item[\mlabel{itm:39}{7-39}] 将一电流均匀分布的无限大载流平面放入磁感强度为\(\bm{B}_0\)的均匀磁场中，电流方向与磁场垂直，放入后，
         平面两侧磁场的磁感强度分别为\(\bm{B}_1\)和\(\bm{B}_2\)，如图所示。求该载流平面上单位面积所受的磁场力的大小和方向。
     
@@ -331,21 +335,6 @@
                 \end{tikzpicture}
                 \caption{\ref{itm:41} 题图}
             \end{minipage}
-            \begin{minipage}[b]{0.4\textwidth}
-                \centering
-                \begin{tikzpicture}[decoration={random steps,segment length=5pt,amplitude=2pt},scale=0.7]
-                    \draw (0,0) -- (0,4);
-                    \draw (2,1) -- (2,5);
-                    \draw[decorate] (0,4) -- (2,5);
-                    \draw[decorate] (0,0) -- (2,1);
-                    \draw[thin,dashed] (0,2) -- node[below]{\(a\)} (1,2.5) --node[below]{\(a\)} (2,3);
-                    \draw[dashed] (1,-0.5) -- (1,5) node[near end]{\(I\)};
-                    \draw[-Circle] (1,2.5) -- node[below]{\(x\)} (3.5,2.5) node[above]{\(P\)};
-                    \draw[-stealth,thin,cyan] (0.5,2.5) -- (0.5,3.5);
-                    \draw[-stealth,thin,cyan] (1.5,3) -- (1.5,4);
-                \end{tikzpicture}
-                \caption{\ref{itm:s2} 题图}
-            \end{minipage}
         \end{figure}
         
     \item[7-43] 在实验室中，为了测试某种磁性材料的相对磁导率\(\mu_r\)，常将这种材料做成截面为矩形的圆环形样品，然后用漆包线绕成一螺线环。
@@ -357,11 +346,23 @@
 
     \item \label{itm:s2} 电流均匀流过宽为\(2a\)的无限长平面导体薄板，电流大小为\(I\)，通过板的中线并与板面垂直的平面上有一点\(P\)，\(P\)到板的垂直距离为\(x\)（如图），
         设板厚可略去不计，求\(P\)点的磁感强度。
-
-    \item \label{itm:s3} 一对无穷长直的空心导体圆筒内，内外筒半径分别为\(R_1\)和\(R_2\)（筒壁厚度可以忽略）。电流\(I\)沿内筒流去，沿外筒流回（见本题图），
-        （1）计算两筒间的磁感强度\(B\)；（2）通过长度为\(L\)的一段截面（图中阴影区）的磁通量\(\varPhi_B\)。
         \begin{figure}[htb]
             \centering
+            \begin{minipage}[b]{0.4\textwidth}
+                \centering
+                \begin{tikzpicture}[decoration={random steps,segment length=5pt,amplitude=2pt},scale=0.7]
+                    \draw (0,0) -- (0,4);
+                    \draw (2,1) -- (2,5);
+                    \draw[decorate] (0,4) -- (2,5);
+                    \draw[decorate] (0,0) -- (2,1);
+                    \draw[thin,dashed] (0,2) -- node[below]{\(a\)} (1,2.5) --node[below]{\(a\)} (2,3);
+                    \draw[dashed] (1,0) -- (1,5) node[near end]{\(I\)};
+                    \draw[-Circle] (1,2.5) -- node[below]{\(x\)} (3.5,2.5) node[above]{\(P\)};
+                    \draw[-stealth,thin,cyan] (0.5,2.5) -- (0.5,3.5);
+                    \draw[-stealth,thin,cyan] (1.5,3) -- (1.5,4);
+                \end{tikzpicture}
+                \caption{\ref{itm:s2} 题图}
+            \end{minipage}
             \begin{minipage}[b]{0.4\textwidth}
                 \centering
                 \begin{tikzpicture}
@@ -386,6 +387,14 @@
                 \end{tikzpicture}
                 \caption{\ref{itm:s3} 题图}
             \end{minipage}
+        \end{figure}
+
+    \item \label{itm:s3} 一对无穷长直的空心导体圆筒内，内外筒半径分别为\(R_1\)和\(R_2\)（筒壁厚度可以忽略）。电流\(I\)沿内筒流去，沿外筒流回（见本题图），
+        （1）计算两筒间的磁感强度\(B\)；（2）通过长度为\(L\)的一段截面（图中阴影区）的磁通量\(\varPhi_B\)。
+        
+    \item \label{itm:s4} 矩形截面的螺线环，螺线环总匝数为\(N\)，载流大小为\(I\)，尺寸见本题图，（1）求环内磁感应强度的分布；（2）求通过螺线环截面（图中阴影区）的磁通量。 
+        \begin{figure}[htb]
+            \centering
             \begin{minipage}[b]{0.4\textwidth}
                 \centering
                 \begin{tikzpicture}
@@ -409,8 +418,6 @@
             \end{minipage}
         \end{figure}
 
-    \item \label{itm:s4} 矩形截面的螺线环，螺线环总匝数为\(N\)，载流大小为\(I\)，尺寸见本题图，（1）求环内磁感应强度的分布；（2）求通过螺线环截面（图中阴影区）的磁通量。 
-
     \item 在一个显像管里，电子沿水平方向从南到北运动，动能是\csi{1.2e4}{\eV}，该处地球磁场在竖直方向上的分量向下，\(\bm{B}\)的大小是\csi{5.5e-5}{\tesla}，
         已知电子电荷\(-e=\csi{1.6e-19}{\coulomb}\)，质量\(m=\csi{9.1e-21}{\kg}\)。（1）电子受地磁的影响往哪个方向偏转？（2）电子的加速度有多大？
         （3）电子在显像管内走\csi{20}{\cm}时，偏转有多大？（4）地磁对看电视有没有影响？
@@ -422,19 +429,102 @@
             \centering
             \begin{minipage}[b]{0.4\textwidth}
                 \begin{tikzpicture}
+                    \draw[very thick] (-2,-2) -- (-2,0) -- (2,0) -- (2,-2);
+                    \draw[stealth-stealth] (-2,-1.4) -- node[fill=white]{\(l\)} (2,-1.4);
+                    \foreach \x in {-3,-2.4,...,3.6}
+                        \foreach \y in {-1.1,-0.5,0.1,0.7}
+                            \node at (\x,\y) {\(\times\)};
+                    \node at (2.7,0.4) {\(\bm{B}\)};
+                    \draw (-2.3,-1.7) -- (-2.3,-1.4) -- (-3,-1.4) -- (-3,-3) to[battery1] (0,-3) to[nos=K] (3,-3)
+                        -- (3,-1.4) -- (2.3,-1.4) -- (2.3,-1.7);
+                    \begin{scope}
+                        \draw (-2.5,-1.5) .. controls (-2.5,-1.7) and (-2.4,-2.3) .. (-2.3,-2.3) -- 
+                            (-1.7,-2.3) .. controls (-1.6,-2.3) and (-1.5,-1.7) .. (-1.5,-1.5);
+                        \clip (-2.5,-1.65) rectangle (-1.5,-2.5);
+                        \draw[fill=cyan,fill opacity=0.7] (-2.5,-1.5) .. controls (-2.5,-1.7) and (-2.4,-2.3) .. (-2.3,-2.3) -- 
+                            (-1.7,-2.3) .. controls (-1.6,-2.3) and (-1.5,-1.7) .. (-1.5,-1.5);
+                    \end{scope}
+                    \begin{scope}[xshift=4 cm]
+                        \draw (-2.5,-1.5) .. controls (-2.5,-1.7) and (-2.4,-2.3) .. (-2.3,-2.3) -- 
+                            (-1.7,-2.3) .. controls (-1.6,-2.3) and (-1.5,-1.7) .. (-1.5,-1.5);
+                        \clip (-2.5,-1.65) rectangle (-1.5,-2.5);
+                        \draw[fill=cyan,fill opacity=0.7] (-2.5,-1.5) .. controls (-2.5,-1.7) and (-2.4,-2.3) .. (-2.3,-2.3) -- 
+                            (-1.7,-2.3) .. controls (-1.6,-2.3) and (-1.5,-1.7) .. (-1.5,-1.5);
+                    \end{scope}
                 \end{tikzpicture}
                 \caption{\ref{itm:s6} 题图}
             \end{minipage}
+            \begin{minipage}[b]{0.4\textwidth}
+                \centering
+                \begin{tikzpicture}[scale=0.7]
+                    \draw[very thick] (-2,2) rectangle (2,-2);
+                    \node[currarrow,rotate=-90] at (-2,0){};
+                    \node[currarrow,rotate=90] at (2,0){};
+                    \draw[fill] (0,0) circle (1.5pt);
+                    \draw (0,0) circle (4pt);
+                    \node[above left] at (0,0) {\(\bm{B}\)};
+                    \draw (-1,1.5) -- (1,2.5) -- (1,-1.5) -- (-1,-2.5) --cycle;
+                    \draw (-2,2) -- ++(-0.3,0) (-2,-2) -- ++(-0.3,0);
+                    \draw[stealth-stealth] (-2.15,2) -- node[left]{\(a\)} ++(0,-4);
+                    \node[right] at (2,0) {\(I\)};
+                    \draw[fill=lightgray] (0,2) -- (0.1,2.3) -- (0.1,3) -- node[left]{\(O\)} (-0.1,3) -- (-0.1,2.3) -- cycle;
+                    \draw[fill=lightgray] (0,-2) -- (0.1,-2.3) -- (0.1,-3) -- node[left]{\(O^\prime\)} (-0.1,-3) -- (-0.1,-2.3) -- cycle;
+                \end{tikzpicture}
+                \caption{\ref{itm:s7} 题图}
+            \end{minipage}
         \end{figure}
 
-    \item 一边长为\(a\)的正方形线圈载有电流\(I\)，处在均匀外磁场\(\bm{B}\)中，\(\bm{B}\)垂直于纸面向外，线圈可以绕通过中心的竖直轴\(OO^\prime\)转动（见本题图），
+    \item \label{itm:s7} 一边长为\(a\)的正方形线圈载有电流\(I\)，处在均匀外磁场\(\bm{B}\)中，\(\bm{B}\)垂直于纸面向外，线圈可以绕通过中心的竖直轴\(OO^\prime\)转动（见本题图），
         转动惯量为\(J\)，求线圈在平衡位置附近作微小摆动（\(\sin\theta\approx\theta\)，简谐振动）的周期\(T\)。
 
-    \item 一块半导体样品的体积为\(a\times b\times c\)，如图所示，沿\(x\)方向有电流\(I\)，在\(z\)轴方向加有均匀磁场\(\bm{B}\)，实验数据为
+    \item \label{itm:s8} 一块半导体样品的体积为\(a\times b\times c\)，如图所示，沿\(x\)方向有电流\(I\)，在\(z\)轴方向加有均匀磁场\(\bm{B}\)，实验数据为
         \(a=\csi{0.10}{\cm}, b=\csi{0.35}{\cm},c=\csi{1.0}{\cm}, I=\csi{1.0}{\mA}, B=\csi{0.3}{\tesla}\)，片两侧的电势差为\(U_{AA^\prime}=\csi{6.55}{\mV}\)，
         （1）问这半导体是正电荷导电（P型）还是负电荷导电（N型）？（2）求载流子浓度（即单位体积内参加导电的带电粒子数）。
-    
-    \item 一磁导率为\(\mu_1\)的无限长圆柱形直导线，半径为\(R_1\)，其中均匀地通有电流\(I\)。 在导线外包一层磁导率为\(\mu_2\)的圆柱形不导电的磁介质，
+        \begin{figure}[htb]
+            \centering
+            \begin{minipage}[b]{0.4\textwidth}
+                \begin{tikzpicture}[join = round]
+                    \draw[-stealth] (0,0) -- (210:3.5) node[left]{\(x\)};
+                    \draw[-stealth] (0,0) -- (3,0) node[above]{\(y\)};
+                    \draw[-stealth] (0,0) -- (0,2.5) node[left]{\(z\)};
+                    \draw[very thick,-stealth] (210:1)++(1,0) --node[left]{\(\bm{I}\)} ++(210:1.5);
+                    \node[yshift=0.5cm] at (210:1.5) {\(\mathrm{A^\prime}\)};
+                    \draw[fill=white,fill opacity=0.5] (210:3) rectangle ++(2,1);
+                    \draw[fill=white,fill opacity=0.5] (210:3)++(0,1) -- ++(30:3) -- ++(2,0) -- ++(210:3) -- cycle;
+                    \draw[fill=lightgray,fill opacity=0.5] (210:3) ++(2,0) -- ++(0,1) -- ++(30:3) -- ++(0,-1) -- ++(210:3) -- cycle;
+                    \node[xshift=2cm,yshift=0.5cm] at (210:1.5) {\(\mathrm{A}\)};
+                    \draw[very thick,-stealth] (0,1) -- node[left]{\(\bm{B}\)} (0,2);
+                    \draw[thin] (2,1) -- ++(0,0.5) (2,1) -- ++(0.5,0) (0,1) -- ++(-0.5,0) (210:3)++(0,1) -- ++(-0.5,0);
+                    \draw[thin,stealth-stealth] (0,1.3) --node[above]{\(b\)} (2,1.3) ;
+                    \draw[thin,stealth-stealth] (2.3,1) --node[right]{\(a\)} (2.3,0) ;
+                    \draw[thin,stealth-stealth] (-0.3,1) --node[above]{\(c\)} ++(210:3);
+                \end{tikzpicture}
+                \caption{\ref{itm:s8} 题图}
+            \end{minipage}
+            \begin{minipage}[b]{0.5\textwidth}
+                \centering
+                \begin{tikzpicture}[decoration={random steps,segment length=5pt,amplitude=2pt},scale=0.6]
+                    \begin{scope}
+                        \clip[decorate] (3,2.2) rectangle (9,-2.2);
+                        \draw[fill=cyan] (2.5,2) rectangle (10,-2);
+                        \draw[fill=lightgray] (2.5,1.5) rectangle (10,-1.5);
+                    \end{scope}
+                    \draw[dash pattern={on 15pt off 2pt on 1pt off 2pt}] (0,0) -- (9.5,0);
+                    \draw[fill=cyan] (0,0) circle (2);
+                    \draw[fill=lightgray] (0,0) circle (1.5);
+                    \draw[dashed] (0,1.5) -- (3,1.5) (0,2) -- (3,2) (0,-1.5) -- (3,-1.5) (0,-2) -- (3,-2);
+                    \draw (0,0) -- node[right]{\(R_1\)} (45:1.5) (0,0) --node[left]{\(R_2\)} (90:2);
+                    \node at (8,-1) {\(\mu_1\)};
+                    \node at (8,-1.75) {\(\mu_2\)};
+                    \foreach \x in {1.2,0.4,-0.4,-1.2}
+                        \draw[-stealth] (5,\x) -- ++(2,0);
+                    \node[left] at (5,0) {\(I\)};
+                \end{tikzpicture}
+                \caption{\ref{itm:s9} 题图}
+            \end{minipage}
+        \end{figure}
+
+    \item \label{itm:s9} 一磁导率为\(\mu_1\)的无限长圆柱形直导线，半径为\(R_1\)，其中均匀地通有电流\(I\)。 在导线外包一层磁导率为\(\mu_2\)的圆柱形不导电的磁介质，
         其外半径为\(R_2\)，如图所示。试求：(1) 磁场强度和磁感强度的分布；(2) 半径为\(R_1\)和\(R_2\)处表面上磁化面电流线密度。
 \end{enumerate}
 \end{document} 
