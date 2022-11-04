@@ -56,11 +56,11 @@
 \begin{document} 
 \maketitle
 \begin{enumerate}
-    %\item[\mlabel{itm:a}{5-6}] 自定义label引用参考
+    % \item[\mlabel{itm:a}{5-6}] 自定义label引用参考
     \item[7-8] 两个同轴圆柱面导体的长度均为\csi{20}{\meter}，内圆柱面的半径为\csi{3.0}{\mm}，外圆柱面的半径为\csi{9.0}{\mm}。
          若两圆柱面之间有\csi{10}{\uA}的电流沿径向流过，求通过半径为\csi{6.0}{\mm}的圆柱面的电流密度。
     
-    \item[\mlabel{itm:10}{7-10}] 如图所示，两根导线沿半径方向接到铁环的\(a\)、\(b\)b两点，并与很远处的电源相连接。
+    \item[\mlabel{itm:10}{7-10}] 如图所示，两根导线沿半径方向接到铁环的\(a\)、\(b\)两点，并与很远处的电源相连接。
         求环心点\(O\)的磁感强度。
         \begin{figure}[htbp]
             \centering
@@ -412,21 +412,13 @@
                     \draw[stealth-stealth] (-1,-2.6) -- node[above]{\(D_1\)} ++(2,0);
                     \draw[thin] (-1.4,-2.6) -- ++(0,-0.3);
                     \draw[thin] (1.4,-2.6) -- ++(0,-0.3);
+                    \draw[thin] (1.4,-2.6) -- ++(0.3,0);
+                    \draw[thin] (1.4,-2.2) -- ++(0.3,0);
                     \draw[stealth-stealth] (-1.4,-2.75) -- node[below]{\(D_2\)} ++(2.8,0);
+                    \draw[stealth-stealth] (1.55,-2.2) -- node[right]{\(h\)} ++(0,-0.4);
                 \end{tikzpicture}
                 \caption{\ref{itm:s4} 题图}
             \end{minipage}
-        \end{figure}
-
-    \item 在一个显像管里，电子沿水平方向从南到北运动，动能是\csi{1.2e4}{\eV}，该处地球磁场在竖直方向上的分量向下，\(\bm{B}\)的大小是\csi{5.5e-5}{\tesla}，
-        已知电子电荷\(-e=\csi{1.6e-19}{\coulomb}\)，质量\(m=\csi{9.1e-21}{\kg}\)。（1）电子受地磁的影响往哪个方向偏转？（2）电子的加速度有多大？
-        （3）电子在显像管内走\csi{20}{\cm}时，偏转有多大？（4）地磁对看电视有没有影响？
-
-    \item \label{itm:s6} 一段导线弯成如图中所示的形状，它的质量是\(m\)，上面水平一段的长度为\(l\)，处在均匀磁场中，磁感强度为\(\bm{B}\)，\(\bm{B}\)与导线垂直；
-        导线下面两端分别插在两个浅水银槽里，两槽水银与一带开关K的外电源连接。当K一接通，导线便从水银槽里跳起来。
-        （1）设跳起来的高度为\(h\)，求通过导线的电量\(q\)；（2）当\(m=\csi{10}{\g},l=\csi{20}{\cm},h=\csi{3.0}{\m},B=\csi{0.10}{\tesla}\)时，求\(q\)的量值。
-        \begin{figure}[htb]
-            \centering
             \begin{minipage}[b]{0.4\textwidth}
                 \begin{tikzpicture}
                     \draw[very thick] (-2,-2) -- (-2,0) -- (2,0) -- (2,-2);
@@ -454,6 +446,17 @@
                 \end{tikzpicture}
                 \caption{\ref{itm:s6} 题图}
             \end{minipage}
+        \end{figure}
+
+    \item 在一个显像管里，电子沿水平方向从南到北运动，动能是\csi{1.2e4}{\eV}，该处地球磁场在竖直方向上的分量向下，\(\bm{B}\)的大小是\csi{5.5e-5}{\tesla}，
+        已知电子电荷\(-e=\csi{1.6e-19}{\coulomb}\)，质量\(m=\csi{9.1e-31}{\kg}\)。（1）电子受地磁的影响往哪个方向偏转？（2）电子的加速度有多大？
+        （3）电子在显像管内走\csi{20}{\cm}时，偏转有多大？（4）地磁对看电视有没有影响？
+
+    \item \label{itm:s6} 一段导线弯成如图中所示的形状，它的质量是\(m\)，上面水平一段的长度为\(l\)，处在均匀磁场中，磁感强度为\(\bm{B}\)，\(\bm{B}\)与导线垂直；
+        导线下面两端分别插在两个浅水银槽里，两槽水银与一带开关K的外电源连接。当K一接通，导线便从水银槽里跳起来。
+        （1）设跳起来的高度为\(h\)，求通过导线的电量\(q\)；（2）当\(m=\csi{10}{\g},l=\csi{20}{\cm},h=\csi{3.0}{\m},B=\csi{0.10}{\tesla}\)时，求\(q\)的量值。
+        \begin{figure}[htb]
+            \centering
             \begin{minipage}[b]{0.4\textwidth}
                 \centering
                 \begin{tikzpicture}[scale=0.7]
@@ -472,16 +475,6 @@
                 \end{tikzpicture}
                 \caption{\ref{itm:s7} 题图}
             \end{minipage}
-        \end{figure}
-
-    \item \label{itm:s7} 一边长为\(a\)的正方形线圈载有电流\(I\)，处在均匀外磁场\(\bm{B}\)中，\(\bm{B}\)垂直于纸面向外，线圈可以绕通过中心的竖直轴\(OO^\prime\)转动（见本题图），
-        转动惯量为\(J\)，求线圈在平衡位置附近作微小摆动（\(\sin\theta\approx\theta\)，简谐振动）的周期\(T\)。
-
-    \item \label{itm:s8} 一块半导体样品的体积为\(a\times b\times c\)，如图所示，沿\(x\)方向有电流\(I\)，在\(z\)轴方向加有均匀磁场\(\bm{B}\)，实验数据为
-        \(a=\csi{0.10}{\cm}, b=\csi{0.35}{\cm},c=\csi{1.0}{\cm}, I=\csi{1.0}{\mA}, B=\csi{0.3}{\tesla}\)，片两侧的电势差为\(U_{AA^\prime}=\csi{6.55}{\mV}\)，
-        （1）问这半导体是正电荷导电（P型）还是负电荷导电（N型）？（2）求载流子浓度（即单位体积内参加导电的带电粒子数）。
-        \begin{figure}[htb]
-            \centering
             \begin{minipage}[b]{0.4\textwidth}
                 \begin{tikzpicture}[join = round]
                     \draw[-stealth] (0,0) -- (210:3.5) node[left]{\(x\)};
@@ -501,6 +494,20 @@
                 \end{tikzpicture}
                 \caption{\ref{itm:s8} 题图}
             \end{minipage}
+        \end{figure}
+
+    \item \label{itm:s7} 一边长为\(a\)的正方形线圈载有电流\(I\)，处在均匀外磁场\(\bm{B}\)中，\(\bm{B}\)垂直于纸面向外，线圈可以绕通过中心的竖直轴\(OO^\prime\)转动（见本题图），
+        转动惯量为\(J\)，求线圈在平衡位置附近作微小摆动（\(\sin\theta\approx\theta\)，简谐振动）的周期\(T\)。
+
+    \item \label{itm:s8} 一块半导体样品的体积为\(a\times b\times c\)，如图所示，沿\(x\)方向有电流\(I\)，在\(z\)轴方向加有均匀磁场\(\bm{B}\)，实验数据为
+        \(a=\csi{0.10}{\cm}, b=\csi{0.35}{\cm},c=\csi{1.0}{\cm}, I=\csi{1.0}{\mA}, B=\csi{0.3}{\tesla}\)，片两侧的电势差为\(U_{AA^\prime}=\csi{6.55}{\mV}\)，
+        （1）问这半导体是正电荷导电（P型）还是负电荷导电（N型）？（2）求载流子浓度（即单位体积内参加导电的带电粒子数）。
+        
+
+    \item \label{itm:s9} 一磁导率为\(\mu_1\)的无限长圆柱形直导线，半径为\(R_1\)，其中均匀地通有电流\(I\)。 在导线外包一层磁导率为\(\mu_2\)的圆柱形不导电的磁介质，
+        其外半径为\(R_2\)，如图所示。试求：(1) 磁场强度和磁感强度的分布；(2) 半径为\(R_1\)和\(R_2\)处表面上磁化电流面密度。
+        \begin{figure}[htb]
+            \centering
             \begin{minipage}[b]{0.5\textwidth}
                 \centering
                 \begin{tikzpicture}[decoration={random steps,segment length=5pt,amplitude=2pt},scale=0.6]
@@ -523,8 +530,5 @@
                 \caption{\ref{itm:s9} 题图}
             \end{minipage}
         \end{figure}
-
-    \item \label{itm:s9} 一磁导率为\(\mu_1\)的无限长圆柱形直导线，半径为\(R_1\)，其中均匀地通有电流\(I\)。 在导线外包一层磁导率为\(\mu_2\)的圆柱形不导电的磁介质，
-        其外半径为\(R_2\)，如图所示。试求：(1) 磁场强度和磁感强度的分布；(2) 半径为\(R_1\)和\(R_2\)处表面上磁化面电流线密度。
 \end{enumerate}
 \end{document} 
