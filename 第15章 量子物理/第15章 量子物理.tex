@@ -1,0 +1,86 @@
+\documentclass[UTF-8]{ctexart} 
+\usepackage[a4paper,left=2cm,right=2cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{amsmath,bm,amssymb}
+\usepackage{siunitx}
+\usepackage{physics}
+\usepackage{lmodern}
+\usepackage{tikz}
+\usepackage{cutwin}
+\usepackage{fancyhdr}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{upgreek}
+\usepackage{circuitikz}
+\usepackage{mathrsfs}
+\usetikzlibrary{snakes,fadings}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{shapes}
+\usetikzlibrary{arrows.meta}
+
+\tikzfading[name=fade left，left color=transparent!30，right color=transparent!70]
+
+\captionsetup{labelformat=empty}
+%\renewcommand\thefigure{\theenumi}
+\makeatletter
+\renewcommand*\maketitle{
+    \begin{center}
+        \bfseries
+        {\Large \@title \par}
+        \vskip 1em
+        {\global\let\author\@empty}
+        {\global\let\date\@empty}
+    \end{center}
+  \setcounter{footnote}{0}
+}
+\newcommand{\mlabel}[2]{#2\def\@currentlabel{#2}\label{#1}}
+\newcommand{\cube}[5]{
+    \pgfmathsetmacro{\cubex}{#2}
+    \pgfmathsetmacro{\cubey}{#3}
+    \pgfmathsetmacro{\cubez}{#4}
+    \filldraw[#5!50,join=round] #1 -- ++(-\cubex,0,0) -- ++(0,-\cubey,0) -- ++(\cubex,0,0) -- cycle;
+    \filldraw[#5,join=round] #1 -- ++(0,0,-\cubez) -- ++(0,-\cubey,0) -- ++(0,0,\cubez) -- cycle;
+    \filldraw[#5!80,join=round] #1 -- ++(-\cubex,0,0) -- ++(0,0,-\cubez) -- ++(\cubex,0,0) -- cycle;
+}
+\renewcommand\theenumi{S-\arabic{enumi}}
+\renewcommand\labelenumi{\theenumi}
+\sisetup{inter-unit-product = \ensuremath { { } \cdot { } } }
+\newcommand{\csi}[2]{ \SI{#1}{#2}}
+\newcommand*{\dif}{\mathop{}\!\mathrm{d}}
+\newcommand{\lbd}[2]{\(\lambda=\csi{#1}{#2}\)}
+\newcommand{\ri}[2]{\(n_{#1}={#2}\)}
+\newcommand{\tangle}[1]{\(\theta={#1}^\circ\)}
+\makeatother
+
+\pagestyle{fancy}
+\fancyhf{}
+\cfoot{\thepage}
+\renewcommand\headrulewidth{0pt}
+\title{第15章\ 量子物理}
+\author{叶旺全\\大学物理教研室}
+
+\begin{document} 
+\maketitle
+\begin{enumerate}
+    %\item[\mlabel{itm:a}{5-6}] 自定义label引用参考
+    \item[15-8] 天狼星的温度大约是\csi{11000}{\celsius}。试由维恩位移定律计算其辐射峰值的波长。
+    \item[15-9] 用辐射高温计测得炼钢炉口的辐射出射度为\csi{22.8}{\watt\per\square\cm}，试求炉内温度。
+    \item[15-12] 钾的截止频率为\csi{4.62e14}{\hertz}，今以波长为\csi{435.8}{\nm}的光照射，求钾放出的光电子的初速度。
+    \item[15-14] 一个具有\csi{1.0e4}{\eV}能量的光子与一个静止自由电子相碰撞，碰撞后，光子的散射角为\,\ang{60}。试问：（1）光子的波长、频率和能量各改变多少？（2）电子的动能、动量和运动方向又如何？
+    \item[15-15] 波长为\csi{0.10}{\nm}的光子入射在碳上，从而产生康普顿效应。从实验中测量到，散射光子的方向与入射光子的方向相垂直。求：（1）散射光子的波长；（2）反冲电子的动能和运动方向。
+    \item[15-18] 在氢原子的波尔理论中，当电子由量子数\(n_i=5\)的轨道跃迁到\(n_f=2\)的轨道上时，对外辐射的光的波长为多少？若再将该电子从\(n_f=2\)的轨道跃迁到游离状态，外界需要提供多少能量？
+    \item[15-19] 如用能量为\csi{12.6}{\eV}的电子轰击氢原子，将产生哪些谱线？
+    \item[15-22] 求动能为\csi{1.0}{\eV}的电子的德布罗意波的波长。
+    \item[15-25] 若电子和光子的波长均为\csi{0.20}{\nm}，则它们的动量和动能各为多少？
+    \item[15-27] 电子位置的不确定量为\csi{5.0e-2}{\nm}时，其速率的不确定量为多少？
+    \item[15-29] 一颗质量为\csi{40}{\g}的子弹以\csi{1.0e3}{\m\per\second}的速率飞行，求：（1）其德布罗意波的波长；（2）若测量子弹位置的不确定量为\csi{0.10}{\mm}，求其速率的不确定量。
+    \item 假设太阳表面温度为\csi{5800}{\kelvin}，太阳半径为\csi{6.96e8}{\m}。如果认为太阳的辐射是稳定的，求太阳在一年内由于辐射，它的质量减少了多少?
+    \item 铝的逸出功为\csi{4.2}{\eV}。今用波长为\csi{200}{\nm}的紫外光照射到铝表面上，发射的光电子的最大初动能为多少？遏止电势差为多大？铝的红限波长是多大？
+    \item 如果一个光子的能量等于一个电子的静止能量，问该光子的频率、波长和动量各为多少？在电磁波谱中属于何种射线？
+    \item 在康普顿散射中，入射X射线的波长为\csi{3.0e-3}{\nm}，反冲电子的速率为\(0.6c\)，求散射光子的波长和散射方向。(能量守恒、动量守恒)
+    \item 在基态氢原子被外来单色光激发后发出的巴耳末系中，仅观察到三条谱线，试求：（1） 外来光的波长; （2） 这三条谱线的波长.
+    \item 若一个电子的动能等于它的静能，试求该电子的速率和德布罗意波长.
+    \item 设粒子在沿\(x\)轴运动时，速率的不确定量为\(\Delta v=\csi{1}{\cm\per\second}\)，试估算下列情况下坐标的不确定量\(\Delta x\)。（1） 电子; （2） 质量为\csi{10e-13}{\kg}的布朗粒子;
+         （3） 质量为\csi{10e-4}{\kg}的小弹丸.
+    \item 氦氖激光器所发出的红光波长为\(\lambda=\csi{632.8}{\nm}\)，谱线宽度\(\Delta\lambda=\csi{10e-9}{\nm}\)。试求该光子沿运动方向的位置不确定度 (即波列长度).
+\end{enumerate}
+\end{document} 
